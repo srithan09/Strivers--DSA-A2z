@@ -1,20 +1,28 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-void reverseArray(vector<int> arr, int start, int end) {
-    if (start < end) {
-    swap(arr[start], arr[end]);
-    reverseArray(arr, start + 1, end - 1);
-    }
-}
-void printArray(vector<int> arr, int n) {
+void printArray(vector<int> arr) {
     cout << "The reversed array is:- " << endl;
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < arr.size(); i++) {
     cout << arr[i] << " ";
     }
 }
-int main() {
-    vector<int> arr = {5, 4, 3, 2, 1};
-    reverseArray(arr,0,arr.size()-1);
-    printArray(arr,arr.size()-1);
-    return 0;
+void reverse(vector<int> &arr)
+{
+    int start = 0, end = arr.size() - 1;
+    while (start < end)
+    {
+            arr[start] = arr[start]+arr[end];
+            arr[end] = arr[start]-arr[end];
+            arr[start] = arr[start]-arr[end];
+        
+        start++;
+        end--;
+    }
+    printArray(arr);
+}
+int main()
+{
+    vector<int> arr;
+    arr={2,10,12,90,4};
+    reverse(arr);
 }
