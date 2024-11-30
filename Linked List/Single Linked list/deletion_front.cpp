@@ -30,18 +30,9 @@ Node Insert_end(Node head,int data)
     }
     return head;
 }
-void printList(Node head)
+Node delete_front(Node head)
 {
-    Node curr = head;
-    while(curr!= NULL)
-    {
-        cout<<curr->data<<endl;
-        curr = curr->next;
-    }
-}
-Node delete_end(Node head)
-{
-    if(head == NULL)
+    if(head  == NULL)
     {
         return head;
     }
@@ -51,14 +42,20 @@ Node delete_end(Node head)
         return NULL;
     }
     else{
-        Node temp = head;
-        while (temp->next->next!=NULL)
-        {
-            temp = temp->next;
-        }
-        delete temp->next;
-        temp->next = NULL;
+        Node curr = head;
+        head = head->next;
+        curr->next = NULL;
+        delete curr;
         return head;
+    }
+}
+void printList(Node head)
+{
+    Node curr = head;
+    while(curr!= NULL)
+    {
+        cout<<curr->data<<endl;
+        curr = curr->next;
     }
 }
 int main()
@@ -73,7 +70,7 @@ int main()
         n1=Insert_end(n1,data);
     }
     printList(n1);
-    n1=delete_end(n1);
+    n1=delete_front(n1);
     printList(n1);
     return 0;
 }
