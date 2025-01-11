@@ -1,1 +1,0 @@
-//apply merge sort algorithm
