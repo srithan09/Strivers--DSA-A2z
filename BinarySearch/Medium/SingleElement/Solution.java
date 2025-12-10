@@ -1,10 +1,11 @@
 public class Solution {
-    public static int singleNonDuplicate(int[] nums) {
+    public static int  SingleEelement(int[] nums)
+    {
         int n = nums.length;
-        if (n == 1) return nums[0];
         int start = 0;
-        int end = n - 1;
-        while (start <= end) {
+        int end = n-1;
+        while(start <= end)
+        {
             int mid = start + (end - start) / 2;
             if (mid == 0) {
                 if (nums[0] != nums[1]) return nums[0];
@@ -41,7 +42,7 @@ public class Solution {
     }
     public static void main(String[] args) {
         int[] arr = {1,1,2,3,3,4,4,8,8};
-        int ans = singleNonDuplicate(arr);
+        int ans = SingleEelement(arr);
         System.out.println(ans);
     }
 }
